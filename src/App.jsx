@@ -28,6 +28,8 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <button className='btn btn-primary'>Click</button>
+      <p className='text-orange-700'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla odio ipsa, vitae quia iusto sapiente autem, praesentium recusandae deleniti unde natus. Aut, iste velit numquam dolorem error autem asperiores eum.</p>
     </>
   )
 }
