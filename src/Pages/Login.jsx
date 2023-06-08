@@ -1,8 +1,23 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
  
 
 const Login = () => {
+    const [passwordType, setPasswordType] = useState("password");  
+
+    const togglePassword = () =>{
+        if(passwordType==="password")
+        {
+         setPasswordType("text")
+         return;
+        }
+        setPasswordType("password")
+      }
+
+
+
     return (
         <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col gap-36 lg:flex-row-reverse">
@@ -21,10 +36,10 @@ const Login = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="text" placeholder="password" className="input input-bordered" />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                </label>
+                <input type={passwordType} placeholder="password" className="input input-bordered" />
+                <p className="md:relative left-72 bottom-8 cursor-pointer " onClick={togglePassword}>
+                     { passwordType==="password"? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash> }
+                     </p>
               </div>
               <div className="form-control mt-6">
                 <button className="btn text-white bg-gradient-to-r from-[#D14D72] to-[#fcc01e]">Login</button>
