@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const Navbar = () => {
     const navbar = <>
-    <li className="bg-gradient-to-r from-[#D14D72] to-[#fcc01e] inline-block text-transparent bg-clip-text"><Link>Home</Link></li>
-    <li className="bg-gradient-to-r from-[#D14D72] to-[#fcc01e] inline-block text-transparent bg-clip-text"><Link>Instractor</Link></li>
-    <li className="bg-gradient-to-r from-[#D14D72] to-[#fcc01e] inline-block text-transparent bg-clip-text"><Link>Class</Link></li>
-    <li className="bg-gradient-to-r from-[#D14D72] to-[#fcc01e] inline-block text-transparent bg-clip-text"><Link>Dashboard</Link></li>
+    <li className= "font-bold bg-gradient-to-r from-[#D14D72] to-[#fcc01e] inline-block text-transparent bg-clip-text"><Link>Home</Link></li>
+    <li className="font-bold bg-gradient-to-r from-[#D14D72] to-[#fcc01e] inline-block text-transparent bg-clip-text"><Link>Instractor</Link></li>
+    <li className="font-bold bg-gradient-to-r from-[#D14D72] to-[#fcc01e] inline-block text-transparent bg-clip-text"><Link>Class</Link></li>
+    <li className="font-bold bg-gradient-to-r from-[#D14D72] to-[#fcc01e] inline-block text-transparent bg-clip-text"><Link>Dashboard</Link></li>
     </>
     return (
-        <div>
+        <div data-aos="fade-down"data-aos-duration="2000" >
             <div className="navbar ">
   <div className="navbar-start">
     <div className="dropdown">
@@ -22,7 +25,7 @@ const Navbar = () => {
        }
       </ul>
     </div>
-    <a className="btn btn-ghost normal-case text-xl bg-gradient-to-r from-[#D14D72] to-[#fcc01e] inline-block text-transparent bg-clip-text">daisyUI</a>
+    <a className="btn btn-ghost normal-case text-2xl bg-gradient-to-r from-[#D14D72] to-[#fcc01e] inline-block text-transparent bg-clip-text"><i>Drawing garden</i></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -30,7 +33,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link className="btn bg-gradient-to-r from-[#D14D72] to-[#fcc01e]">Login</Link>
+    <Link to='/login' className="btn text-white bg-gradient-to-r from-[#D14D72] to-[#fcc01e]">Login</Link>
   </div>
 </div>
         </div>
