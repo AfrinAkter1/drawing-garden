@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from "../Providers/AuthProvider";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
  
 
@@ -10,7 +11,7 @@ const Login = () => {
     const {googleSignIn, passwordLogin} = useContext(AuthContext)
     const [passwordType, setPasswordType] = useState("password");  
     const [error , setError] = useState('')
-    
+    const navigate = useNavigate()
     const togglePassword = () =>{
         if(passwordType==="password")
         {
@@ -36,6 +37,13 @@ const { register, handleSubmit,  } = useForm();
     passwordLogin(data.email, data.password)
     .then(result =>{
       console.log(result.user)
+      navigate('/')
+      Swal.fire({
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      })
     })
     .catch(error => {
       console.log(error.message)

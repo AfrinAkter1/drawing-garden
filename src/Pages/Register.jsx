@@ -1,6 +1,6 @@
 import {   useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { AuthContext } from "../Providers/AuthProvider";
 
@@ -9,7 +9,7 @@ const Register = () => {
     const [passwordType, setPasswordType] = useState("password");  
     const [password2ndType, setPassword2ndType] = useState("password"); 
     const { register,getValues,   handleSubmit, formState: { errors }  } = useForm();
-   
+   const navigate = useNavigate()
   const onSubmit = data => {
 
     console.log(data)
@@ -17,6 +17,7 @@ const Register = () => {
     .then(result =>{
       const user = result.user;
       console.log(user)
+      navigate('/')
       updateUserProfile(data.name, data.photourl)
       .then(result =>{
         console.log(result)
