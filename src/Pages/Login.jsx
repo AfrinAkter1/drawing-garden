@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { AuthContext } from "../Providers/AuthProvider";
 
  
 
 const Login = () => {
+    const {googleSignIn} = useContext(AuthContext)
     const [passwordType, setPasswordType] = useState("password");  
-
+    
     const togglePassword = () =>{
         if(passwordType==="password")
         {
@@ -16,6 +18,18 @@ const Login = () => {
         setPasswordType("password")
       }
 
+const handleGoogle = () =>{
+    googleSignIn()
+    .then(result => {
+        console.log(result.user)
+    })
+    .catch(error => {
+        console.log(error.message)
+    })
+}
+
+const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data);
 
 
     return (
@@ -25,7 +39,7 @@ const Login = () => {
            <img className="h-80 w-96" src="https://img.freepik.com/free-vector/sign-page-abstract-concept-illustration_335657-3875.jpg" alt="" />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <div className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -43,10 +57,10 @@ const Login = () => {
               </div>
               <div className="form-control mt-6">
                 <button className="btn text-white bg-gradient-to-r from-[#D14D72] to-[#fcc01e]">Login</button>
-                <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT13IyGsqKYZ2OF8nlWcXFIePFkB4vG4FBSPOlKWGAJ4z77ciPmalopIpX_zvQy3hBMCQ&usqp=CAU" alt="" />
+                <img className="cursor-pointer" onClick={handleGoogle}  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT13IyGsqKYZ2OF8nlWcXFIePFkB4vG4FBSPOlKWGAJ4z77ciPmalopIpX_zvQy3hBMCQ&usqp=CAU" alt="" />
                 <p>Are you New? <Link className="text-blue-400" to='/register'>Please Register</Link></p>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>

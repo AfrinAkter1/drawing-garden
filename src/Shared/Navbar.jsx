@@ -1,10 +1,21 @@
 import { Link } from "react-router-dom";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
 // ..
 AOS.init();
 
 const Navbar = () => {
+  const {user,logOut} = useContext(AuthContext)
+
+  const handleLogout = () =>{
+    logOut()
+    .then()
+    .catch(err =>{
+      console.log(err.message)
+    })
+  }
     const navbar = <>
     <li className= "font-bold bg-gradient-to-r from-[#D14D72] to-[#fcc01e] inline-block text-transparent bg-clip-text"><Link>Home</Link></li>
     <li className="font-bold bg-gradient-to-r from-[#D14D72] to-[#fcc01e] inline-block text-transparent bg-clip-text"><Link to='/instractor'>Instractor</Link></li>
@@ -33,7 +44,12 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link to='/login' className="btn text-white bg-gradient-to-r from-[#D14D72] to-[#fcc01e]">Login</Link>
+   { user? <>
+   
+   <img className="h-10 w-10 rounded-full mx-3" src={user.photoURL} alt="" />
+   <button onClick={handleLogout} className="btn text-white bg-gradient-to-r from-[#D14D72] to-[#fcc01e]">LogOut</button>
+   </>
+   :<Link to='/login' className="btn text-white bg-gradient-to-r from-[#D14D72] to-[#fcc01e]">Login</Link>}
   </div>
 </div>
         </div>

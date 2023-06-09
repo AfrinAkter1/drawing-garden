@@ -2,7 +2,7 @@
 
 const ExtraSection = () => {
     return (
-        <div className="hero min-h-screen bg-base-200 p-14">
+        <div className="hero  bg-base-200 md:p-14">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <img src="https://images.unsplash.com/photo-1511854005000-f27912f66ade?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZHJhd2luZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" className="max-w-sm rounded-lg shadow-2xl" />
     <div>
