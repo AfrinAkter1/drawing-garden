@@ -1,5 +1,6 @@
 import ExtraSection from "../../ExtraSection";
 import Banner from "../Banner";
+// import Classes from "../Classes";
 
 
 
@@ -9,6 +10,7 @@ const Home = () => {
         <div>
           <Banner></Banner>
            <ExtraSection></ExtraSection>
+           {/* <Classes></Classes> */}
         </div>
     );
 };
