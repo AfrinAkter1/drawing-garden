@@ -24,7 +24,27 @@ const Login = () => {
 const handleGoogle = () =>{
     googleSignIn()
     .then(result => {
-        console.log(result.user)
+      const loggedUser = result.user
+        console.log(loggedUser)
+        const saveUser = {name: loggedUser.displayName, email: loggedUser.email } 
+      fetch('http://localhost:5000/users',{
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+        },
+          body: JSON.stringify(saveUser)
+        })
+        .then(res => res.json())
+        .then(data =>{
+         if(data.insertedId){
+          Swal.fire({
+            icon: 'success',
+            title: 'Data inserte successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
+         }
+        })
     })
     .catch(error => {
         console.log(error.message)

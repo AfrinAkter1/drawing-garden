@@ -3,9 +3,11 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const {passwordRegister, updateUserProfile} = useContext(AuthContext)
+  const [error, setError] = useState('')
     const [passwordType, setPasswordType] = useState("password");  
     const [password2ndType, setPassword2ndType] = useState("password"); 
     const { register,getValues,   handleSubmit, formState: { errors }  } = useForm();
@@ -17,17 +19,38 @@ const Register = () => {
     .then(result =>{
       const user = result.user;
       console.log(user)
+  
       navigate('/')
       updateUserProfile(data.name, data.photourl)
-      .then(result =>{
-        console.log(result)
+      .then(()=>{
+      const saveUser = {name: data.name, email: data.email } 
+      fetch('http://localhost:5000/users',{
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+        },
+          body: JSON.stringify(saveUser)
+        })
+        .then(res => res.json())
+        .then(data =>{
+         if(data.insertedId){
+          Swal.fire({
+            icon: 'success',
+            title: 'data insert successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
+         }
+        })
       })
       .catch(error =>{
         console.log(error.message)
+    
       })
     })
     .catch(error => {
       console.log(error)
+      setError(error.message)
     })
    
 };
@@ -130,7 +153,7 @@ const Register = () => {
 
 {errors.confirm && <p className="text-red-500">{errors.confirm.message}</p>}
 
-
+<p className="text-red-500">{error}</p>
 
 
 

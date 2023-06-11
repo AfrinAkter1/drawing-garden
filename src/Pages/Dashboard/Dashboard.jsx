@@ -2,8 +2,9 @@ import { Link, Outlet } from "react-router-dom";
 
 
 const Dashboard = () => {
-    const admin = false;
-    const instructor = true;
+    // TODO
+    const admin = true;
+    const instructor = false;
     return (
         <div>
 
