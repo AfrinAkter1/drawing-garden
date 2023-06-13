@@ -1,10 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
 import useAdmin from "../../Hooks/useAdmin";
+import useInstractor from "../../Hooks/useInstractor";
 
 
 const Dashboard = () => {
    const [isAdmin] = useAdmin()
-    const instructor = false;
+    const [isInstractor] = useInstractor()
     return (
         <div>
 
@@ -28,7 +29,7 @@ const Dashboard = () => {
          
         </div>
       </div>
-      ) : instructor ? (
+      ) : isInstractor ? (
         <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
