@@ -1,11 +1,11 @@
 
-import { FaTrashAlt, FaUserShield } from "react-icons/fa";
+import { FaChalkboardTeacher, FaTrashAlt, FaUserShield } from "react-icons/fa";
 import UseAllUsers from "../../Hooks/UseAllUsers";
 import Swal from "sweetalert2";
 const AllUsers = () => {
     
 
-     const [ users,, refetch] = UseAllUsers() 
+     const [ users ,,refetch] = UseAllUsers() 
      console.log(users)
 
     // fetch('http://localhost:5000/users')
@@ -32,6 +32,9 @@ const AllUsers = () => {
             }
         })
     }
+    const handleMakeInstractor =() =>{
+
+    }
     
     return (
         <div className=" w-full">
@@ -53,8 +56,13 @@ const AllUsers = () => {
         <th>{index + 1}</th> 
         <td>{user.name}</td> 
         <td>{user.email}</td> 
-        <td>{user.role === 'admin' ? 'admin': <button onClick={() => handleMakeAdmin(user)} className="btn btn-sm bg-gradient-to-r from-[#D14D72] to-[#fcc01e]  text-white"><FaUserShield></FaUserShield></button>}</td> 
-       
+        <td><span className="mx-4">
+        {user.role === 'admin' ? 'admin': <button onClick={() => handleMakeAdmin(user)} className="btn  btn-sm bg-gradient-to-r from-[#D14D72] to-[#fcc01e]  text-white"><FaUserShield></FaUserShield></button>}
+        </span>
+        {user.role2 === 'instractor' ? 'instractor': <button onClick={() => handleMakeInstractor(user)} className="btn btn-sm bg-gradient-to-r from-[#D14D72] to-[#fcc01e]  text-white "><FaChalkboardTeacher></FaChalkboardTeacher></button>} 
+        </td> 
+         
+        
         <td><button className="btn btn-sm bg-gradient-to-r from-[#D14D72] to-[#fcc01e]  text-white"><FaTrashAlt></FaTrashAlt></button></td>
       </tr>)
        }
