@@ -6,7 +6,7 @@ const AllUsers = () => {
     
 
      const [ users ,refetch] = UseAllUsers() 
-     console.log(users)
+    //  console.log(users)
 
     // fetch('http://localhost:5000/users')
     // .then(res => res.json())

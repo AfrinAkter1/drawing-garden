@@ -6,6 +6,7 @@ import useInstractor from "../../Hooks/useInstractor";
 const Dashboard = () => {
    const [isAdmin] = useAdmin()
     const [isInstractor] = useInstractor()
+    console.log(isInstractor)
     return (
         <div>
 
