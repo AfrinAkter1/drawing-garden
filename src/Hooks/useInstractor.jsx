@@ -6,7 +6,7 @@ import useAxiosSecure from "./useAxiosSecure";
 
 const useInstractor = () =>{
     const {user} = useContext(AuthContext)
-    console.log(user.email)
+    // console.log(user.email)
     const [axiosSecure] = useAxiosSecure();
     const {data: isInstractor, isLoading: isInstractorLoading} = useQuery({
         queryKey: ['isInstractor', user?.email],
