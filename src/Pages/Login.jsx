@@ -37,9 +37,10 @@ const handleGoogle = () =>{
         .then(res => res.json())
         .then(data =>{
          if(data.insertedId){
+          navigate('/')
           Swal.fire({
             icon: 'success',
-            title: 'Data inserte successfully',
+            title: 'Login successfully',
             showConfirmButton: false,
             timer: 1500
           })
@@ -60,7 +61,7 @@ const { register, handleSubmit,  } = useForm();
       navigate('/')
       Swal.fire({
         icon: 'success',
-        title: 'Your work has been saved',
+        title: 'Login Successfully',
         showConfirmButton: false,
         timer: 1500
       })

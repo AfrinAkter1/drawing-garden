@@ -36,7 +36,7 @@ const Register = () => {
          if(data.insertedId){
           Swal.fire({
             icon: 'success',
-            title: 'data insert successfully',
+            title: 'register successfully',
             showConfirmButton: false,
             timer: 1500
           })
