@@ -45,7 +45,6 @@ const AddClass = () => {
                             if (data?.insertedId) {
                                 reset();
                                 Swal.fire({
-                                    position: 'top-end',
                                     icon: 'success',
                                     title: 'MenuItem added successful',
                                     showConfirmButton: false,

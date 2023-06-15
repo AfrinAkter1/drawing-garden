@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2';
 import useClasses from '../../Hooks/useClasses';
+import { useState } from 'react';
 
 
 const ManageClassTable = ({ index, singleClass }) => {
@@ -92,7 +93,7 @@ const ManageClassTable = ({ index, singleClass }) => {
                 <td>{email}</td>
                 <td>{seats}</td>
                 <td>{price}</td>
-                <td>  <button className='btn bnt-primary btn-sm'>{status}</button> </td>
+                <td>  <button className='btn bg-gradient-to-r from-[#D14D72] to-[#fcc01e] text-white btn-sm'>{status}</button> </td>
                 {<> <td>
                     <button
                         disabled={
@@ -107,7 +108,7 @@ const ManageClassTable = ({ index, singleClass }) => {
                                 status === "deny" || status === "approved"
                             }
                             onClick={() => handleStatus(singleClass, "deny")}
-                            className='btn btn-primary btn-sm hover:bg-orange-500'>Deny</button>
+                            className='btn bg-gradient-to-r from-[#D14D72] to-[#fcc01e] text-white btn-sm hover:bg-orange-500'>Deny</button>
                     </td> </>}
                 <td>
 

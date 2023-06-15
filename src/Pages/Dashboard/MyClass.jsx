@@ -96,7 +96,7 @@ const MyClass = () => {
               <td className='text-center text-green-600 font-bold'>{myClass.student}</td>
               <td>{myClass.feedback?.[0]}</td>
               <th>
-                <button onClick={() => handleDelete(_id)} className=" btn btn-ghost btn-md text-white hover:text-red-500  bg-[#D14D72]"> <FaTrash className='w-4 h-6'></FaTrash> </button>
+                <button onClick={() => handleDelete(myClass._id)} className=" btn btn-ghost btn-md text-white hover:text-red-500  bg-[#D14D72]"> <FaTrash className='w-4 h-6'></FaTrash> </button>
               </th>
               </tr>)}
 

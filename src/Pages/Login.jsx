@@ -79,23 +79,23 @@ const { register, handleSubmit,  } = useForm();
            <img className="h-80 w-96" src="https://img.freepik.com/free-vector/sign-page-abstract-concept-illustration_335657-3875.jpg" alt="" />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body my-0">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input {...register("email", { required: true })} type="text" name="email" placeholder="email" className="input input-bordered" />
+                <input  {...register("email", { required: true })} type="text" name="email" placeholder="email" className="input input-bordered w-80" />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input {...register("password", { required: true })} name="password" type={passwordType} placeholder="password" className="input input-bordered" />
-                <p className="md:relative left-72 bottom-8 cursor-pointer " onClick={togglePassword}>
+                <input {...register("password", { required: true })} name="password" type={passwordType} placeholder="password" className="w-80 input input-bordered" />
+                <p className="md:relative left-72 bottom-12 cursor-pointer " onClick={togglePassword}>
                      { passwordType==="password"? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash> }
                      </p>
               </div>
-              <div className="form-control mt-6">
+              <div className="form-control mt-3 w-80">
                 <p className="text-red-500">{error}</p>
                 <input className="btn text-white bg-gradient-to-r from-[#D14D72] to-[#fcc01e]" type="submit" value="Login" />
                 

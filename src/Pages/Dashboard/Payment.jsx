@@ -11,7 +11,7 @@ const Payment = () => {
   const stripePromise = loadStripe(import.meta.env.VITE_payment_gateway_pk)
 
   return (
-    <div className=''>
+    <div className='w-full'>
       {/* <SectionTitle heading=" Please provide Payment">
       </SectionTitle> */}
       <Elements stripe={stripePromise}>

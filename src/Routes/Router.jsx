@@ -15,6 +15,8 @@ import Payment from "../Pages/Dashboard/Payment";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory";
 import AdminRoute from "../PrivetRoute/AdminRoute";
 import ManageClasses from "../Pages/Dashboard/ManageClasses";
+import Instractors from "../Pages/Instractors";
+import AllClasses from "../Pages/AllClasses";
 
 const router = createBrowserRouter([
     {
@@ -33,7 +35,18 @@ const router = createBrowserRouter([
         {
           path: '/register',
           element:<Register></Register>
-        }
+        },
+        { 
+          path: 'instractors',
+          element: <Instractors></Instractors>
+           
+        },
+       
+        {
+          
+          path: 'allClasses',
+          element: <AllClasses></AllClasses>
+                 },
       ]
     },
     {
@@ -78,7 +91,7 @@ const router = createBrowserRouter([
           element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
         },
         {
-          path: 'manageUsers',
+          path: 'allusers',
           element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
         },
       ]
@@ -131,14 +144,7 @@ const router = createBrowserRouter([
 //           path: 'register',
 //           element: <Register></Register>
 //         },
-//         {
-//           path: 'instructors',
-//           element: <Instructors></Instructors>
-//         },
-//         {
-//           path: 'allClasses',
-//           element: <AllClasses></AllClasses>
-//         },
+//         
 //         {
 //           path: '*',
 //           element: <NotFound></NotFound>

@@ -23,7 +23,7 @@ const Register = () => {
       navigate('/')
       updateUserProfile(data.name, data.photourl)
       .then(()=>{
-      const saveUser = {name: data.name, email: data.email } 
+      const saveUser = {name: data.name, email: data.email, image: data.photourl } 
       fetch('http://localhost:5000/users',{
           method: 'POST',
           headers: {
@@ -81,7 +81,7 @@ const Register = () => {
            <img className="" src="https://img.freepik.com/free-vector/sign-page-abstract-concept-illustration_335657-3875.jpg" alt="" />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body w-96 mt-0">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -112,7 +112,7 @@ const Register = () => {
                 )} name="password" type={passwordType} placeholder="password" className="input input-bordered" />
                
 
-                <p className="md:relative left-72 bottom-8 cursor-pointer " onClick={togglePassword}>
+                <p className="md:relative left-72 bottom-12 cursor-pointer " onClick={togglePassword}>
                      { passwordType==="password"? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash> }
                      </p>
             
@@ -128,7 +128,7 @@ const Register = () => {
                   })}
                 name="confirm" type={password2ndType} placeholder="Confirm password" className="input input-bordered" />
                
-                <p className="md:relative left-72 bottom-8 cursor-pointer " onClick={toggle2ndPassword}>
+                <p className="md:relative left-72 bottom-12 cursor-pointer " onClick={toggle2ndPassword}>
                      { password2ndType==="password"? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash> }
                      </p>
             

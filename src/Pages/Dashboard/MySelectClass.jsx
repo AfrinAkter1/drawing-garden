@@ -47,13 +47,13 @@ const MySelectedClass = () => {
   }
 
   return (
-    <div className='w-full bg-gray-300 px-4 pt-4 pb-20 text-white mt-5'>
+    <div className='w-full bg-gray-100 px-4 pt-4 pb-20 text-black mt-5'>
       {/* <SectionTitle subheading="Class Show Now" heading="All Select Class"></SectionTitle> */}
-        <h2 className='font-semibold  text-center text-xl'>Total Selected Class: {selectedClass?.length}</h2>
+        <h2 className=' text-center text-xl font-bold bg-gradient-to-r from-[#D14D72] to-[#fcc01e] text-transparent bg-clip-text'>Total Selected Class: {selectedClass?.length}</h2>
       <div className="overflow-x-auto mt-9">
         <table className="table border rounded">
           {/* head */}
-          <thead className='font-semibold text-lg text-purple-700'>
+          <thead className='text-xl font-bold bg-gradient-to-r from-[#D14D72] to-[#fcc01e] text-transparent bg-clip-text'>
             <tr>
               <th>#</th>
               <th>Image</th>

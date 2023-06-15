@@ -6,8 +6,8 @@ const {_id,name,email,instructor,image,student,feedback,seats,price,status,} = m
 console.log(myClass);
  return (
     
-      <tr>
-        <th className='text-black bold'>
+      <tr className='text-black bold'>
+        <th >
           {index + 1}
         </th>
         <td><img className='h-12 w-12' src={image} alt="" /> </td>

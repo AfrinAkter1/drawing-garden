@@ -1,6 +1,7 @@
 import ExtraSection from "../../ExtraSection";
+import PopularClasses from "../../PopularClass";
+import PopularInstractor from "../../PopularInstractor";
 import Banner from "../Banner";
-import Classes from "../Classes";
 
 
 
@@ -10,7 +11,8 @@ const Home = () => {
         <div>
           <Banner></Banner>
            <ExtraSection></ExtraSection>
-           <Classes></Classes>
+           <PopularClasses></PopularClasses>
+           <PopularInstractor></PopularInstractor>
         </div>
     );
 };
