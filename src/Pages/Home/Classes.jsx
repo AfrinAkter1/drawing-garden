@@ -5,7 +5,7 @@ import Class from "./Class";
 const Classes = () => {
     const [classes, setClasses] = useState([])
     useEffect(() =>{
-          fetch('https://assignment12-server-murex.vercel.app/home')
+          fetch('http://localhost:5000/home')
           .then(res => res.json())
           .then(data => {
             setClasses(data)

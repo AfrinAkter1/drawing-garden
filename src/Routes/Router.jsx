@@ -9,6 +9,12 @@ import MyClass from "../Pages/Dashboard/MyClass";
 import AllUsers from "../Pages/Dashboard/AllUsers";
 import AddClass from "../Pages/Dashboard/AddClass";
 import InstractorRoute from "../PrivetRoute/InstractorRoute";
+import MySelectedClass from "../Pages/Dashboard/MySelectClass";
+import MyEnrolledClasses from "../Pages/Dashboard/MyEnrolledClasses";
+import Payment from "../Pages/Dashboard/Payment";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory";
+import AdminRoute from "../PrivetRoute/AdminRoute";
+import ManageClasses from "../Pages/Dashboard/ManageClasses";
 
 const router = createBrowserRouter([
     {
@@ -34,18 +40,47 @@ const router = createBrowserRouter([
       path: 'dashboard',
       element:<Dashboard></Dashboard>,
       children:[
+        // student users
         {
-          path: 'myclass',
-          element:<MyClass></MyClass>
+          path: 'mySelectClass',
+          element: <MySelectedClass></MySelectedClass>
         },
         {
-          path: 'allusers',
-          element:<AllUsers></AllUsers>
+          path: 'myEnrolledClass',
+          element: <MyEnrolledClasses></MyEnrolledClasses>
+        },
+  
+        {
+          path: "payment/:id",
+          element: <Payment></Payment>,
+          loader: ({ params }) =>
+            fetch(`http://localhost:5000/selectClass/${params.id}`),
+        },
+  
+        {
+          path: 'paymentHistory',
+          element: <PaymentHistory></PaymentHistory>
+        },
+
+       // Instructors Route
+        {
+          path: 'addClass',
+          element: <InstractorRoute><AddClass></AddClass></InstractorRoute>
         },
         {
-          path:'addClass',
-          element:<InstractorRoute><AddClass></AddClass></InstractorRoute>
-        }
+          path: 'myClass',
+          element: <InstractorRoute> <MyClass></MyClass></InstractorRoute>
+        },
+
+         // Admin Route
+        {
+          path: 'manageClasses',
+          element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
+        },
+        {
+          path: 'manageUsers',
+          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        },
       ]
     }
   ]);
@@ -115,45 +150,9 @@ const router = createBrowserRouter([
 //       element: <DashboardLayout></DashboardLayout>,
 //       errorElement: <NotFound></NotFound>,
 //       children: [
-//         // student users
-//         {
-//           path: 'mySelectClass',
-//           element: <MySelectedClass></MySelectedClass>
-//         },
-//         {
-//           path: 'myEnrolledClass',
-//           element: <MyEnrolledClasses></MyEnrolledClasses>
-//         },
-  
-//         {
-//           path: "payment/:id",
-//           element: <Payment></Payment>,
-//           loader: ({ params }) =>
-//             fetch(https://assignment12-server-murex.vercel.app/selectClass/${params.id}),
-//         },
-  
-//         {
-//           path: 'paymentHistory',
-//           element: <PaymentHistory></PaymentHistory>
-//         },
-//         // Instructors Route
-//         {
-//           path: 'addClass',
-//           element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
-//         },
-//         {
-//           path: 'myClass',
-//           element: <InstructorRoute> <MyClass></MyClass></InstructorRoute>
-//         },
-//         // Admin Route
-//         {
-//           path: 'manageClasses',
-//           element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
-//         },
-//         {
-//           path: 'manageUsers',
-//           element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
-//         },
+//         
+//         
+//        
   
 //       ]
 //     }

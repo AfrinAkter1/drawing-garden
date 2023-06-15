@@ -27,7 +27,7 @@ const handleGoogle = () =>{
       const loggedUser = result.user
         console.log(loggedUser)
         const saveUser = {name: loggedUser.displayName, email: loggedUser.email } 
-      fetch('https://assignment12-server-murex.vercel.app/users',{
+      fetch('http://localhost:5000/users',{
           method: 'POST',
           headers: {
             'content-type': 'application/json'

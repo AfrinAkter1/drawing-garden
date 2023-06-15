@@ -39,7 +39,7 @@ const updateUserProfile = (name, photourl)=>{
                setUser(currentUser)
                console.log('current User', currentUser)
                if(currentUser){
-                axios.post('https://assignment12-server-murex.vercel.app/jwt', {email: currentUser.email})
+                axios.post('http://localhost:5000/jwt', {email: currentUser.email})
                 .then(data =>{
                     // console.log(data.data.token)
                     localStorage.setItem('access-token',data.data.token)

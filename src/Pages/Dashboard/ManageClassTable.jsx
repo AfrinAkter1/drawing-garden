@@ -23,11 +23,11 @@ const ManageClassTable = ({ index, singleClass }) => {
         const form = event.target;
         const feedback = form.feedback.value;
         const requestBody = {
-            feedback: feedback // Wrap the feedback value inside an object property
+            feedback: feedback 
         };
 
         console.log(feedback)
-        fetch(`https://assignment12-server-murex.vercel.app/addClasses/${_id}`, {
+        fetch(`http://localhost:5000/addClasses/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -53,7 +53,7 @@ const ManageClassTable = ({ index, singleClass }) => {
 
 
     const handleStatus = (singleClass, status) => {
-        fetch(`https://assignment12-server-murex.vercel.app/classes/${singleClass._id}/?status=${status}`, {
+        fetch(`http://localhost:5000/classes/${singleClass._id}/?status=${status}`, {
             method: "PATCH",
         })
             .then((res) => res.json())

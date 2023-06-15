@@ -8,14 +8,14 @@ const AllUsers = () => {
      const [ users ,refetch] = UseAllUsers() 
     //  console.log(users)
 
-    // fetch('https://assignment12-server-murex.vercel.app/users')
+    // fetch('http://localhost:5000/users')
     // .then(res => res.json())
     // .then(data => {
     //     console.log(data)
     // })
        
     const handleMakeAdmin = users =>{
-        fetch(`https://assignment12-server-murex.vercel.app/users/admin/${users._id}`,{
+        fetch(`http://localhost:5000/users/admin/${users._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -35,7 +35,7 @@ const AllUsers = () => {
     const handleMakeInstractor =(user) =>{
       
 
-       fetch(`https://assignment12-server-murex.vercel.app/users/instractor/${user._id}`,{
+       fetch(`http://localhost:5000/users/instractor/${user._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -101,7 +101,7 @@ const AllUsers = () => {
 
 // const ManageUsers = () => {
 // const {data:users=[], refetch} = useQuery(['users'], async()=>{
-// const res = await fetch('https://assignment12-server-murex.vercel.app/users')
+// const res = await fetch('http://localhost:5000/users')
 // return res.json();
 // })
 // console.log(users);
@@ -117,7 +117,7 @@ const AllUsers = () => {
 //       confirmButtonText: 'Yes, delete it!'
 //     }).then((result) => {
 //       if (result.isConfirmed) {
-//         fetch(https://assignment12-server-murex.vercel.app/users/${user._id}, {
+//         fetch(http://localhost:5000/users/${user._id}, {
 //           method: 'DELETE'
 //         })
 //           .then(res => res.json())
@@ -140,7 +140,7 @@ const AllUsers = () => {
 // } 
 
 // const handleMakeAdmin = (user) =>{
-// fetch(https://assignment12-server-murex.vercel.app/users/admin/${user._id},{
+// fetch(http://localhost:5000/users/admin/${user._id},{
 // method:"PATCH"
 // })
 // .then(res=>res.json())
@@ -160,7 +160,7 @@ const AllUsers = () => {
 // }
 
 // const handleMakeInstructor = (user) =>{
-// fetch(https://assignment12-server-murex.vercel.app/users/instructor/${user._id},{
+// fetch(http://localhost:5000/users/instructor/${user._id},{
 // method:"PATCH"
 // })
 // .then(res=>res.json())

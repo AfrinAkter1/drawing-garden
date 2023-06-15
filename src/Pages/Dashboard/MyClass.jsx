@@ -3,7 +3,8 @@ import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
-import MyClassCard from './MyClassCard';
+// import MyClassCard from './MyClassCard';
+import { FaTrash } from 'react-icons/fa';
 const MyClass = () => {
   const { loading, user } = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
@@ -29,7 +30,7 @@ const MyClass = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://assignment12-server-murex.vercel.app/myClass/${id}`, {
+        fetch(`http://localhost:5000/myClass/${id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())
@@ -51,13 +52,13 @@ const MyClass = () => {
   }
 
   return (
-    <div className='w-full bg-gray-300 px-4 pt-4 pb-20 text-white mt-5'>
-      {/* <SectionTitle subheading="Class Show Now" heading="All Select Class"></SectionTitle> */}
-      <div className="overflow-x-auto mt-9">
-        <table className="table border rounded">
-          {/* head */}
-          <thead className='  font-bold bg-gradient-to-r from-[#D14D72] to-[#fcc01e] inline-block text-transparent bg-clip-text'>
-            <tr>
+    <div className='w-full mx-auto bg-gray-300 px-4 pt-4 pb-20 text-black mt-5'>
+
+<div className="overflow-x-auto">
+  <table className="table">
+    {/* head */}
+    <thead className='font-bold bg-gradient-to-r from-[#D14D72] to-[#fcc01e]  text-transparent bg-clip-text'>
+      <tr>
               <th>#</th>
               <th>Image</th>
               <th>Class Name</th>
@@ -69,21 +70,49 @@ const MyClass = () => {
               <th>Total Enrolled</th>
               <th>Feedback</th>
               <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              myAllClass?.map((myClass, index) => <MyClassCard
-                key={myClass._id}
-                myClass={myClass}
-                handleDelete={handleDelete}
-                index={index}
-              ></MyClassCard>)
-            }
+      </tr>
+    </thead>
+    <tbody>
+      { myAllClass?.map((myClass, index) => <tr
+              key={myClass._id}
+              >
+<td className='text-black bold mx-0 w-0'>
+                {index + 1}
+              </td> 
+             {/* <td><img className='h-12 w-12' src={myClass.image} alt="" /> </td>  */}
+               <div className="flex items-center space-x-3"> 
+                  <div className="avatar"> 
+                    <div className=" rounded-lg w-20 h-16">
+                      <img className=' rounded-lg w-20 h-16' src={myClass.image} alt="Avatar Tailwind CSS Component" /> 
+                     </div> 
+                 </div>
+              </div>
+              <td>{myClass.name}</td>
+              <td>{myClass.instructor}</td>
+              <td>{myClass.email}</td>
+              <td>{myClass.seats}</td>
+              <td>{myClass.price}</td>
+              <td>{myClass.status}</td>
+              <td className='text-center text-green-600 font-bold'>{myClass.student}</td>
+              <td>{myClass.feedback?.[0]}</td>
+              <th>
+                <button onClick={() => handleDelete(_id)} className=" btn btn-ghost btn-md text-white hover:text-red-500  bg-[#D14D72]"> <FaTrash className='w-4 h-6'></FaTrash> </button>
+              </th>
+              </tr>)}
 
-          </tbody>
-        </table>
-      </div>
+
+
+     
+     
+    
+    
+    </tbody>
+  
+    
+  </table>
+</div>
+
+
 
     </div>
   );

@@ -32,7 +32,7 @@ const AddClass = () => {
                         status: 'pending'
                     }
 
-                    fetch('https://assignment12-server-murex.vercel.app/addClass,', {
+                    fetch('http://localhost:5000/addClass', {
                         method: "POST",
                         headers: {
                             "content-type": "application/json"
