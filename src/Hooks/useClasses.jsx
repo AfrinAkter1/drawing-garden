@@ -9,7 +9,7 @@ const useClasses = () => {
     queryKey: ['classes'],
     enabled: !loading,
     queryFn: async () => {
-      const res = await fetch('http://localhost:5000/allClasses');
+      const res = await fetch('https://assignment12-server-murex.vercel.app/allClasses');
       return res.json();
     },
   })

@@ -10,7 +10,6 @@ margin:"auto",
 borderColor:"red"
 }
 const AdminRoute = ({children}) => {
-// console.log(location)
 const {user, loading} = useContext(AuthContext);
 const [isAdmin, isAdminLoading] = useAdmin();
 const location = useLocation();

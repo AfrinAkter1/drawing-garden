@@ -1,10 +1,8 @@
-import  { useContext, useState } from 'react';
+import  { useContext,  } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { Slide } from 'react-awesome-reveal';
 import { AuthContext } from '../Providers/AuthProvider';
-import useAdmin from '../Hooks/useAdmin';
-import useInstractor from '../Hooks/useInstractor';
 
 const ClassesCard = ({ singleClass }) => {
   const { _id, name, image, student, instructor, seats, price } = singleClass;
@@ -12,18 +10,16 @@ const ClassesCard = ({ singleClass }) => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  // const [isAdmin] = useAdmin();
-  // const [isInstractor] = useInstractor();
 
 
-  const handleAddClass = add => {
+  const handleAddClass = () => {
 
     
 
     if (user && user.email) {
       const selectClasses = { selectClassId: _id, name, image, instructor, seats, price, email: user?.email }
       console.log(selectClasses);
-      fetch('http://localhost:5000/selectClass', {
+      fetch('https://assignment12-server-murex.vercel.app/selectClass', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
@@ -75,13 +71,7 @@ const ClassesCard = ({ singleClass }) => {
             <p className='text-slate-500'> Price: ${price}.</p>
           </div>
           <div className="card-actions">
-            {/* {
-            isAdmin ?
-              <><button onClick={handleAddClass} className="btn btn-primary" disabled >Select</button> </>
-              : isInstructor ?
-                <><button onClick={handleAddClass} className="btn btn-primary" disabled>Select</button></> :
-                <><button onClick={handleAddClass} className="btn btn-primary" disabled={disabled}>Select</button></>
-          } */}
+         
             { seats === 0 ? (
               <>
                 <button

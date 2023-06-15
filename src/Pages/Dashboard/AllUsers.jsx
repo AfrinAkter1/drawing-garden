@@ -27,7 +27,7 @@ const AllUsers = () => {
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:5000/users/${user._id}`,{
+          fetch(`https://assignment12-server-murex.vercel.app/users/${user._id}`,{
             method: 'DELETE'
           })
           .then(res => res.json())
@@ -48,7 +48,7 @@ const AllUsers = () => {
        
     const handleMakeAdmin = users =>{
       handleClickAdmin()
-        fetch(`http://localhost:5000/users/admin/${users._id}`,{
+        fetch(`https://assignment12-server-murex.vercel.app/users/admin/${users._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -68,7 +68,7 @@ const AllUsers = () => {
     const handleMakeInstractor =(user) =>{
       
       handleClickIns()
-       fetch(`http://localhost:5000/users/instractor/${user._id}`,{
+       fetch(`https://assignment12-server-murex.vercel.app/users/instractor/${user._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())

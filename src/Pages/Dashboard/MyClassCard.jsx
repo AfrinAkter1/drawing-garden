@@ -11,13 +11,7 @@ console.log(myClass);
           {index + 1}
         </th>
         <td><img className='h-12 w-12' src={image} alt="" /> </td>
-          {/* <div className="flex items-center space-x-3"> */}
-            {/* <div className="avatar"> */}
-              {/* <div className=" rounded-lg w-20 h-16"> */}
-                {/* <img className=' rounded-lg w-20 h-16' src={image} alt="Avatar Tailwind CSS Component" /> */}
-              {/* </div> */}
-            {/* </div> */}
-          {/* </div> */}
+          
         
         <td>{name}</td>
         <td>{instructor}</td>

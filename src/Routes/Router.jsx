@@ -68,7 +68,7 @@ const router = createBrowserRouter([
           path: "payment/:id",
           element: <Payment></Payment>,
           loader: ({ params }) =>
-            fetch(`http://localhost:5000/selectClass/${params.id}`),
+            fetch(`https://assignment12-server-murex.vercel.app/selectClass/${params.id}`),
         },
   
         {

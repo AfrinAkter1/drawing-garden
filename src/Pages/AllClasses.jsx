@@ -4,7 +4,7 @@ import ClassesCard from './ClassesCard';
 const AllClasses = () => {
 const [allApprovedClasses,setAllApprovedClasses] = useState([]);
 useEffect(()=>{
-fetch(`http://localhost:5000/allApprovedClasses/approved`)
+fetch(`https://assignment12-server-murex.vercel.app/allApprovedClasses/approved`)
 .then(res=>res.json())
 .then(data=>{
 console.log(data)

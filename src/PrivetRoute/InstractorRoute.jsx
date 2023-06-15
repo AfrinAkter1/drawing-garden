@@ -10,7 +10,6 @@ borderColor:"red"
 }
 
 const InstractorRoute = ({children}) => {
-// console.log(location)
 const {user, loading} = useContext(AuthContext);
 const [isInstractor, isInstractorLoading] = useInstractor();
 const location = useLocation();

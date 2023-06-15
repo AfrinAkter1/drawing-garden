@@ -1,13 +1,12 @@
 
 import  { useEffect, useState } from 'react';
 import PopularClassCard from './PopularClassCard';
-// import SectionTitle from '../../../Component/SectionTitle';
 
 
 const PopularClasses = () => {
 const [popularClass,setPopularClass] = useState([]);
 useEffect(()=>{
-fetch('http://localhost:5000/popularClass/approved')
+fetch('https://assignment12-server-murex.vercel.app/popularClass/approved')
 .then(res=>res.json())
 .then(data=>setPopularClass(data))
 

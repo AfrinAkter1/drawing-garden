@@ -28,7 +28,7 @@ const ManageClassTable = ({ index, singleClass }) => {
         };
 
         console.log(feedback)
-        fetch(`http://localhost:5000/addClasses/${_id}`, {
+        fetch(`https://assignment12-server-murex.vercel.app/addClasses/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -54,7 +54,7 @@ const ManageClassTable = ({ index, singleClass }) => {
 
 
     const handleStatus = (singleClass, status) => {
-        fetch(`http://localhost:5000/classes/${singleClass._id}/?status=${status}`, {
+        fetch(`https://assignment12-server-murex.vercel.app/classes/${singleClass._id}/?status=${status}`, {
             method: "PATCH",
         })
             .then((res) => res.json())
