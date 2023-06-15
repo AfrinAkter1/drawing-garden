@@ -1,5 +1,5 @@
 
-import { FaChalkboardTeacher,  FaUserShield } from "react-icons/fa";
+import { FaChalkboardTeacher,  FaTrash,  FaUserShield } from "react-icons/fa";
 import UseAllUsers from "../../Hooks/UseAllUsers";
 import Swal from "sweetalert2";
 const AllUsers = () => {
@@ -13,6 +13,34 @@ const AllUsers = () => {
     // .then(data => {
     //     console.log(data)
     // })
+
+    const handleDelete =(user) =>{
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          fetch(`http://localhost:5000/users/${user._id}`)
+          .then(res => res.json())
+          .then(data =>{
+            if(data.deletedCount > 0){
+              refetch()
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+            }
+          })
+         
+        }
+      })
+    }
        
     const handleMakeAdmin = users =>{
         fetch(`http://localhost:5000/users/admin/${users._id}`,{
@@ -66,6 +94,7 @@ const AllUsers = () => {
         <th>Email</th> 
         <th>Role</th> 
         <th>Role2</th> 
+        <th>Delete</th>
       </tr>
     </thead> 
     <tbody>
@@ -80,6 +109,7 @@ const AllUsers = () => {
          
         
         <td>{user.role2 === 'instractor' ? 'instractor': <button onClick={() => handleMakeInstractor(user)} className="btn btn-sm bg-gradient-to-r from-[#D14D72] to-[#fcc01e]  text-white "><FaChalkboardTeacher></FaChalkboardTeacher></button>} </td>
+        <td><button onClick={() => handleDelete(user)} className="btn btn-sm bg-gradient-to-r from-[#D14D72] to-[#fcc01e]  text-white"><FaTrash></FaTrash></button></td>
       </tr>)
        }
      </tbody> 
