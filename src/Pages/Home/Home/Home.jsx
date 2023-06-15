@@ -9,8 +9,9 @@ import Banner from "../Banner";
 const Home = () => {
     return (
         <div>
+            
           <Banner></Banner>
-           <ExtraSection></ExtraSection>
+          <ExtraSection></ExtraSection>
            <PopularClasses></PopularClasses>
            <PopularInstractor></PopularInstractor>
         </div>

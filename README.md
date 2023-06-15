@@ -10,7 +10,7 @@
 * Banner: slider
 * Popular Classes Section
 * Popular Instructor Section
-* Our Achievement
+* About Us
 
 # Instructor-Page:
 
